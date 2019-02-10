@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}Detail{% endblock %}
+
+{% block body %}
+	<h1>ID:{{ date.id }}</h1>
+	<h1>Username: {{ date.username }} </h1>
+	<h1>Published courses:</h1>
+	{% for x in date.publish_courses %}
+		<p>{{ x.name }}</p>
+	{% endfor %}
+{% endblock %}
