@@ -23,10 +23,10 @@ Admin - courses
         <td>
           <!-- 使用了俩个 Bootstrap 的 icon 代表编辑和删除操作 -->
           <div class="btn-group" role="group">
-            <a href="" type="button" class="btn btn-default" title＝"编辑">
+		  <a href="{{ url_for('admin.edit_course', course_id=course.id) }}" type="button" class="btn btn-default" title＝"编辑">
               <span class="glyphicon glyphicon-pencil" title＝"编辑" aria-hidden="true"></span>
             </a>
-            <a href="" type="button" class="btn btn-default" title＝"删除">
+	    <a href="{{ url_for('admin.delete_course', course_id=course.id) }}" type="button" class="btn btn-default" title＝"删除">
               <span class="glyphicon glyphicon-trash" title＝"删除" aria-hidden="true"></span>
             </a>
           </div>
@@ -39,4 +39,11 @@ Admin - courses
 
 <!-- 使用 macro 渲染分页 -->
 {{ render_pagination(pagination, 'admin.courses') }}
+{% endblock %}
+
+{% block operation %}
+<a href="{{ url_for('admin.create_course') }}" type="button" class="btn btn-primary">
+	<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+	添加课程
+</a>
 {% endblock %}
